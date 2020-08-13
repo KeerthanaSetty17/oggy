@@ -2,11 +2,21 @@ package remover;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.Iterator;
 
 public class Main {
     public static void removeOggy(ArrayList<String> names) {
+        Iterator<String> i = names.iterator();
+        while(i.hasNext()){
+            String name= i.next().toString();
+            if(name.contains("oggy")) {
+                i.remove();
+            }
+        }
         return;
     }
+
+
     public static boolean oggyIsRemoved(ArrayList<String> names) {
         List<String> oggys = names.stream().filter(it -> it.contains("oggy")).collect(Collectors.toList());
         return oggys.size() == 0;
